@@ -1,6 +1,32 @@
-import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import { useSelector } from "react-redux";
+import { RootState, useAppDispatch, AppDispatch, increment, decrement } from "@/store/store";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+const CounterApp: React.FC = () => {
+  const count = useSelector ((state: RootState) => state.counter.value)
+  const dispatch: AppDispatch = useAppDispatch()
+
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex-col justify-center items-center text-white">
+      {/*Title*/}
+      <h1 className="text-6xl font-extrbold mb-6">Fun Counter App</h1>
+
+      {/*Funne message*/}
+      <p className="text-lg font-medium mb-4">Current count: {count} {count ==0 ? "No clickss yet!" : count % 10 === 0 && count !==0 ? "You're on fire!" : ""}</p>
+
+      {/*Buttons*/}
+      <div className="flex space-x-4">
+        <button onClick={() => dispatch(increment())} className="bg-green-500 hover:bg-green-60 text-transition duration-300 shadow-lg transform hover:scale-105">
+          Increment
+        </button>
+
+        <button onClick={() => dispatch(decrement())} className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duraion-300 shadow-lg trasnsform hover:scale-105">
+          Decrement
+        </button>
+      </div>
+      {/*Footer message*/}
+      <p className="mt-8 text-sm text-white opacity-75">Keep clicking, who knows what happens at 100?</p>
+    </div>
+  );
 }
+
+export default CounterApp;
