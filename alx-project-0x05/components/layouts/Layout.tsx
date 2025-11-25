@@ -1,4 +1,4 @@
-import Footer from "../layout/Footer";
+import Footer from "./Footer";
 import Header from "./Header";
 import { LayoutProps } from "@/components/interfaces";
 
