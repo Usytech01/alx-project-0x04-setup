@@ -4,7 +4,7 @@ import type { AppProps } from "next/app";
 import { CountProvider } from "@/context/CountContext";
 import { Component } from "react";
 
-export default function App({ Component, pageProps }:
+export default function App ({ Component, pageProps }:
   AppProps) {
     return(
       <CountProvider>
