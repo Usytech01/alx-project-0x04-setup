@@ -1,38 +1,34 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 const CounterApp: React.FC = () => {
     const [count, setCount] = useState(0);
 
-    const increment = () => {
-        setCount(count +1)
+    const increment = () => { setCount(count + 1);
+
     };
 
-    const decrement = ()  => {
-        setCount(count > 0 ? count -1 : 0);
-    };
+    const decrement = () => { setCount(count > 0? count - 1 : 0);
+
+    }
 
     return(
-        <div className="min-h-screen bg-gradient-to-r from-yellow-400 to-pink-500 flex flex-col justify-center items-center text-white">
-            {/*Title*/}
-            <h1 className="text-6x1 font-extrabold mb-6"> Fun Counter App</h1>
+        <div className="min-h-screen bg-gradient-to-r from-yellow-500 to-pink-500 flex flex-col justify-center items-center text-white">
+            {/* title */}
+            <h1 className="text-6xl font-extrabold mb-6 ">Fun Counter App </h1>
 
-            {/*Funny message*/}
-            <p>Current count: {count} {count=== 0 ? "No clicks yet!":
-            count % 10 === 0 && count !==0 ? "you're on fire!" : ""}</p>
+            {/* title */}
+                <p> Current count: {count} {count === 0? " No clicks yet!" : count % 10 == 0 && count ! == 0 ? "You're on fire!" : ""}</p>
 
-            {/*Button*/}
-            <div className="flex space-x-4">
-                <button onClick={increment} className="bg-screen-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg
-                transition duration-300 shadow-lg transform hover:scale-105">Increment</button>
-                <button onClick={increment} className="bg-screen-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg
-                transition duration-300 shadow-lg transform hover:scale-105">Decrement</button>
-            </div>
+                {/* Counter Display */}
+                <div className="text-6xl">{count}</div>
 
-            {/*footer message*/}
-            <p className="mt-o8 text-sm text-white opacity-75">Keep clicking, who knwos waht happent at 100?</p>
+                {/* Button */}
+                <button className="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg  transform hover:scale-105" 
+                onClick={increment}>Increment</button>
+                <button className="bg-red-500 hover:bg-red-600 text-white font-semibold py-3 px-8 rounded-full text-lg transition duration-300 shadow-lg  transform hover:scale-105" 
+                onClick={decrement}>Decrement</button>
         </div>
-    );
+    )
 }
 
-export default CounterApp
-
+export default CounterApp;
