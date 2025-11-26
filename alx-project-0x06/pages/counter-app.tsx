@@ -3,7 +3,7 @@ import { RootState, useAppDispatch, AppDispatch, increment, decrement } from "@/
 
 const CounterApp: React.FC = () => {
     
-    const count = useSelector ((state: RootState) => state.counter.value)
+    const count = useSelector((state: RootState) => state.counter.value)
     const dispatch: AppDispatch = useAppDispatch()
 
     return(
